@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Matheus Pronunciato</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: duas vistas (Portfólio e Sobre mim) num índice editorial de coluna larga; títulos expandidos e pesados, fios finos, contato no rodapé. Tema escuro único, por escolha. */
+:root{
+  --bg:#121211;          /* cinza quase preto, levemente quente */
+  --surface:#1c1b1a;     /* placeholders de imagem */
+  --line:#2c2b28;        /* fios e divisórias */
+  --fg:#ece2c6;          /* off-white bege amarelado */
+  --muted:#9d9682;       /* textos secundários */
+  --accent:#00ff00;      /* destaque: verde do favicon (títulos de projetos) */
+  --accent2:#ff8000;     /* destaque: laranja puro (bio, botões, chamada) */
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --max:1240px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+body{
+  background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.wrap{
+  max-width:var(--max);margin:0 auto;
+  padding-left:max(24px,env(safe-area-inset-left,0px));
+  padding-right:max(24px,env(safe-area-inset-right,0px));
+}
+@media (max-width:480px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* Cabeçalho */
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-stretch:110%;letter-spacing:-.01em;font-size:17px}
+.brand img{width:28px;height:28px}
+nav{display:flex;gap:6px}
+nav a{font-size:15px;color:var(--muted);padding:6px 12px;border:1px solid transparent;border-radius:999px;transition:color .2s,border-color .2s}
+nav a:hover{color:var(--fg)}
+nav a[aria-current="page"]{color:var(--fg);border-color:var(--line)}
+@media (max-width:420px){.brand span{display:none}}
+
+/* Abertura das duas vistas */
+.intro{padding-block:clamp(48px,9vw,112px) clamp(40px,6vw,72px)}
+.intro h1{
+  font-family:var(--display);font-weight:800;font-stretch:125%;
+  font-size:clamp(2.4rem,7vw,6.6rem);line-height:.92;letter-spacing:-.035em;
+  margin:0;text-wrap:balance;
+}
+.intro h1 span{display:block}
+.intro h1 .leve{font-size:.5em;line-height:1.05;margin-top:.2em}
+.intro .sub{
+  margin:clamp(18px,3vw,28px) 0 0;font-weight:300;font-style:italic;
+  font-size:clamp(1.1rem,1.8vw,1.4rem);color:var(--muted);
+}
+.lead{
+  margin:clamp(40px,6vw,72px) 0 0;padding-top:28px;border-top:1px solid var(--line);
+  font-size:clamp(1.35rem,2.6vw,2.1rem);line-height:1.28;font-weight:400;font-stretch:100%;
+  letter-spacing:-.012em;max-width:34ch;text-wrap:pretty;
+}
+.lead em{font-style:normal;color:var(--accent2)}
+.lead i{font-style:italic}
+.lead b{font-weight:700}
+.lead .laranja{color:var(--accent2)}
+.lead .verde{color:var(--accent)}
+
+/* Faixa de clientes */
+.marquee{
+  border-block:1px solid var(--line);overflow:hidden;padding-block:22px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.marquee-track{display:flex;width:max-content;animation:marquee 60s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-group{display:flex;align-items:center;gap:64px;padding-right:64px}
+.client{display:flex;align-items:center;gap:10px;white-space:nowrap;color:var(--muted);font-weight:500;font-size:clamp(1.1rem,1.8vw,1.45rem);letter-spacing:-.005em}
+.client img{width:26px;height:26px;object-fit:contain;border-radius:5px}
+.client .mono{display:grid;place-items:center;width:26px;height:26px;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--fg);font-size:12px;font-weight:700}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* Trabalhos */
+.works{padding-block:clamp(24px,4vw,48px)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 32px}
+@media (max-width:720px){.grid{grid-template-columns:1fr;gap:44px}}
+.card{display:flex;flex-direction:column;gap:16px}
+.ph{position:relative;width:100%;max-width:100%;background:var(--surface);overflow:hidden;border-radius:2px}
+.ph::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 22px,rgba(236,226,198,.025) 22px 23px)}
+.ph span{position:absolute;left:14px;bottom:12px;z-index:1}
+.card .ph{aspect-ratio:4/3;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph{transform:scale(1.012)}
+.card-meta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px}
+.card h3{color:var(--accent);margin:0;font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:700;font-stretch:112%;letter-spacing:-.015em;line-height:1.1;text-wrap:balance}
+.card .yr{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:4px}
+.card .cl{grid-column:1/-1;color:var(--muted);font-size:15px}
+.card:hover h3{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+
+/* Projetos na home: cabeçalho + carrossel */
+.proj{display:grid;gap:28px;padding-block:clamp(36px,5vw,64px) 0}
+.proj-head{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.55fr) minmax(0,1.3fr);gap:20px 32px;align-items:start}
+@media (max-width:900px){.proj-head{grid-template-columns:1fr}}
+.proj-head .tags li{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px}
+.proj-title{color:var(--accent);font-weight:800;font-stretch:118%;font-size:clamp(1.9rem,4.4vw,3.8rem);line-height:.95;letter-spacing:-.03em;margin:14px 0 0;text-wrap:balance}
+.proj-title a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.proj-meta{display:grid;gap:4px;padding-top:6px}
+.proj-meta .yr{font-family:var(--mono);font-size:13px;color:var(--fg);font-variant-numeric:tabular-nums}
+.proj-desc p{margin:0;max-width:52ch;color:var(--fg)}
+.proj-cta{display:inline-flex;margin-top:16px;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;transition:background .2s,color .2s,border-color .2s}
+.proj-cta:hover{background:var(--accent2);border-color:var(--accent2);color:var(--bg)}
+.carousel{display:block;position:relative;overflow:hidden;height:clamp(240px,36vw,540px);cursor:pointer}
+.carousel-track{display:flex;height:100%;width:max-content;animation:slide var(--dur,60s) linear infinite}
+.carousel:hover .carousel-track,.carousel:focus-visible .carousel-track{animation-play-state:paused}
+.carousel-group{display:flex;gap:12px;padding-right:12px;height:100%}
+.slide{flex:none;height:100%;width:auto;max-width:none;border-radius:3px;background:var(--surface);transition:filter .3s}
+.carousel:hover .slide{filter:brightness(.6)}
+.carousel .slide:hover{filter:none}
+.carousel .pill{
+  position:absolute;bottom:20px;left:max(24px,env(safe-area-inset-left,0px));
+  background:var(--accent2);color:var(--bg);border-radius:999px;padding:9px 18px;font-size:14px;font-weight:600;
+  opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;pointer-events:none;
+}
+.carousel:hover .pill,.carousel:focus-visible .pill{opacity:1;transform:none}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.carousel{overflow-x:auto}.carousel-track{animation:none}}
+
+/* Sobre mim / currículo */
+.cv{padding-block:clamp(16px,3vw,32px)}
+.cv-sec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:24px;border-top:1px solid var(--line);padding-block:28px clamp(40px,6vw,64px)}
+@media (max-width:720px){.cv-sec{grid-template-columns:1fr;gap:16px}}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:4px 24px;align-items:baseline;padding-block:16px;border-bottom:1px solid var(--line)}
+.rows li:first-child{padding-top:0}
+.rows li:last-child{border-bottom:0}
+.rows .role{font-weight:600;font-stretch:108%;font-size:clamp(1.05rem,1.6vw,1.25rem);letter-spacing:-.01em}
+.rows .org{color:var(--muted)}
+.rows .areas{grid-column:1/-1;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.rows .when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:560px){.rows li{grid-template-columns:minmax(0,1fr) auto}.rows .org{grid-column:1/-1;grid-row:2}}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tags li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px}
+.intro-tags{margin-top:clamp(24px,3.5vw,36px)}
+
+/* Contato */
+footer{border-top:1px solid var(--line);margin-top:clamp(32px,6vw,64px)}
+footer .wrap{padding-block:clamp(48px,8vw,96px) 40px}
+.cta{color:var(--accent2);font-weight:800;font-stretch:125%;font-size:clamp(2rem,6vw,4.6rem);line-height:.95;letter-spacing:-.03em;margin:0 0 40px}
+.contacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1080px}
+@media (max-width:820px){.contacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.contacts strong{overflow-wrap:anywhere}
+.contacts a{display:flex;flex-direction:column;gap:6px;padding-top:14px;border-top:1px solid var(--line)}
+.contacts a strong{font-weight:500;font-size:clamp(1.05rem,1.8vw,1.3rem);transition:opacity .2s}
+.contacts a:hover strong{opacity:.7}
+@media (max-width:520px){.contacts{grid-template-columns:1fr}}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:72px}
+
+/* Página de projeto */
+.p-top{padding-block:clamp(32px,6vw,72px) 0}
+.back{display:inline-flex;gap:8px;color:var(--muted);font-size:15px;transition:color .2s}
+.back:hover{color:var(--fg)}
+.p-title{color:var(--accent);font-weight:800;font-stretch:125%;font-size:clamp(2.2rem,7vw,6rem);line-height:.92;letter-spacing:-.035em;margin:clamp(28px,5vw,56px) 0 0;text-wrap:balance}
+.p-info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px;border-top:1px solid var(--line);margin-top:clamp(32px,5vw,56px);padding-top:28px}
+.p-facts{display:grid;gap:18px;align-content:start;margin:0}
+.p-facts div{display:grid;gap:2px}
+.p-facts dd{margin:0}
+.p-text p{margin:0 0 1em;max-width:62ch;font-size:clamp(1rem,1.4vw,1.15rem)}
+@media (max-width:720px){.p-info{grid-template-columns:1fr}}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-block:clamp(40px,6vw,72px)}
+.gallery .full{grid-column:1/-1}
+.ph.has-img::after{display:none}
+.gallery.colado,.gallery.colado .row{gap:0}
+.gallery.colado .shot{border-radius:0}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shot{display:block;width:100%;max-width:100%;height:auto;background:var(--surface);border-radius:2px}
+.row{grid-column:1/-1;display:flex;gap:16px;align-items:flex-start}
+.row .shot{flex:1 1 0;min-width:0}
+@media (max-width:620px){.gallery{grid-template-columns:1fr}.gallery .full{grid-column:auto}.row{flex-direction:column}.row .shot{flex:none!important}}
+.next{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-top:1px solid var(--line);padding-block:32px 8px}
+.next strong{color:var(--accent);display:block;font-weight:800;font-stretch:118%;font-size:clamp(1.5rem,4vw,2.8rem);letter-spacing:-.025em;line-height:1;margin-top:8px}
+.next:hover strong{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.arrow{font-size:clamp(1.5rem,4vw,2.8rem);line-height:1}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#portfolio"><img src="data:image/png;base64,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" alt=""><span>Matheus Pronunciato</span></a>
+    <nav aria-label="Principal">
+      <a href="#portfolio" data-nav="portfolio">Portfólio</a>
+      <a href="#sobre" data-nav="sobre">sobre mim</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer id="contato">
+  <div class="wrap">
+    <p class="cta">Vamos criar<br>juntos?</p>
+    <div class="contacts">
+      <a href="https://wa.me/554191545658" target="_blank" rel="noopener">
+        <span class="label">WhatsApp</span>
+        <strong>+55 41 9154-5658</strong>
+      </a>
+      <a href="https://www.linkedin.com/in/matheus-pronunciato-416ba4142/" target="_blank" rel="noopener">
+        <span class="label">LinkedIn</span>
+        <strong>matheus-pronunciato ↗</strong>
+      </a>
+      <a href="mailto:mpronunciato@gmail.com">
+        <span class="label">E-mail</span>
+        <strong>mpronunciato@gmail.com</strong>
+      </a>
+    </div>
+    <div class="foot">
+      <span class="label">Curitiba, PR</span>
+      <span class="label">© 2026 Matheus Pronunciato</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   CONTEÚDO DO SITE — edite só esta parte.
+   ================================================================ */
+
+/* Bio em destaque no topo da página sobre mim.
+   Marcações (podem ser combinadas):
+   <b>negrito</b>  <i>itálico</i>  <laranja>laranja</laranja>  <verde>verde</verde> */
+const BIO = "Oi, eu sou <b><laranja>Matheus Pronunciato</laranja></b> (<b><i><verde>mit</verde></i></b>), designer gráfico, de experiências de aprendizagem, e também de <laranja>belas sobremesas nas horas vagas</laranja>. Atualmente <b><i><verde>designer na LongVision</verde></i></b>.";
+
+/* PROJETOS — para adicionar um novo, copie um bloco { ... },
+   cole na posição desejada e troque os textos.
+   capa: imagem do card na página Portfólio.
+   imagens: cada caminho ocupa a largura toda; dois caminhos entre
+   colchetes [ "a.jpg", "b.jpg" ] ficam lado a lado na mesma altura.
+   Enquanto não houver imagem, "16/9" etc. mostra um bloco provisório. */
+const PROJETOS = [
+  {
+    slug: "lemonade-ventures",
+    titulo: "Lemonade Ventures",
+    cliente: "Lemonade Ventures",
+    ano: "2026",
+    areas: ["Template de apresentações", "Design gráfico"],
+    texto: ["Template de apresentações para as aulas e encontros da Lemonade Ventures.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."],
+    creditos: "Lorem ipsum, Dolor sit",
+    capa: "img/lemonade/capa.jpg",
+    carrossel: [
+      "img/lemonade/slide-00.jpg", "img/lemonade/slide-03.jpg", "img/lemonade/slide-07.jpg",
+      "img/lemonade/slide-04.jpg", "img/lemonade/slide-11.jpg", "img/lemonade/slide-15.jpg",
+      "img/lemonade/slide-08.jpg", "img/lemonade/slide-17.jpg"
+    ],
+    imagens: [
+      "img/lemonade/slide-00.jpg",
+      ["img/lemonade/slide-01.jpg", "img/lemonade/slide-02.jpg"],
+      ["img/lemonade/slide-03.jpg", "img/lemonade/slide-04.jpg"],
+      ["img/lemonade/slide-05.jpg", "img/lemonade/slide-06.jpg"],
+      "img/lemonade/slide-07.jpg",
+      ["img/lemonade/slide-08.jpg", "img/lemonade/slide-09.jpg"],
+      ["img/lemonade/slide-10.jpg", "img/lemonade/slide-12.jpg"],
+      "img/lemonade/slide-11.jpg",
+      ["img/lemonade/slide-13.jpg", "img/lemonade/slide-14.jpg"],
+      "img/lemonade/slide-15.jpg",
+      ["img/lemonade/slide-16.jpg", "img/lemonade/slide-17.jpg"],
+      ["img/lemonade/slide-18.jpg", "img/lemonade/slide-19.jpg"],
+      ["img/lemonade/slide-20.jpg", "img/lemonade/slide-21.jpg"],
+      ["img/lemonade/slide-22.jpg", "img/lemonade/slide-23.jpg"],
+      "img/lemonade/slide-24.jpg"
+    ]
+  },
+  {
+    slug: "lider-longvision",
+    titulo: "Líder LongVision",
+    cliente: "LongVision",
+    ano: "2025",
+    areas: ["Materiais didáticos", "Direção de arte"],
+    texto: ["Identidade visual e materiais didáticos do Líder LongVision, um novo nível de treinamento corporativo: aprendizado contínuo, na prática.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."],
+    creditos: "Lorem ipsum, Dolor sit",
+    capa: "img/lider-longvision/02-capa.jpg",
+    /* carrossel: imagens que passam na home (opcional; sem ele, usa todas) */
+    carrossel: [
+      "video/lider-longvision/Capa01.mp4",
+      "img/lider-longvision/03-telas.jpg",
+      "video/lider-longvision/Capa02.mp4",
+      "img/lider-longvision/04-telas.jpg",
+      "video/lider-longvision/Capa03.mp4"
+    ],
+    imagens: [
+      "img/lider-longvision/01-banner.jpg",
+      "video/lider-longvision/Capa01.mp4",
+      ["video/lider-longvision/Capa02.mp4", "video/lider-longvision/Capa03.mp4"],
+      "img/lider-longvision/03-telas.jpg",
+      ["video/lider-longvision/01_.mp4", "video/lider-longvision/02.mp4"],
+      ["video/lider-longvision/03_.mp4", "video/lider-longvision/04.mp4"],
+      "img/lider-longvision/04-telas.jpg",
+      ["video/lider-longvision/05.mp4", "video/lider-longvision/06_.mp4"],
+      ["video/lider-longvision/07.mp4", "video/lider-longvision/08.mp4"],
+      ["video/lider-longvision/09.mp4", "video/lider-longvision/10.mp4"],
+      ["video/lider-longvision/11.mp4", "video/lider-longvision/12.mp4"],
+      "video/lider-longvision/13.mp4",
+      "video/lider-longvision/LLV_Motion_O que leva.mp4",
+      "video/lider-longvision/LLV_Background 01_vF.mp4",
+      ["video/lider-longvision/LLV_Background_evento_02_vF.mp4", "video/lider-longvision/LLV_Background_evento_03_vF.mp4"],
+      "img/lider-longvision/02-capa.jpg"
+    ]
+  },
+  {
+    slug: "catalogo-bienal-25-anos",
+    titulo: "Catálogo 25 anos da Bienal",
+    cliente: "Bienal de Curitiba",
+    ano: "2019",
+    areas: ["Projeto gráfico editorial"],
+    texto: ["Catálogo comemorativo dos 25 anos da Bienal Internacional de Arte Contemporânea de Curitiba, em edição bilíngue.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."],
+    creditos: "",
+    capa: "img/catalogo-25-anos/05.jpg",
+    carrossel: [
+      "img/catalogo-25-anos/03.jpg", "img/catalogo-25-anos/13.jpg", "img/catalogo-25-anos/04.jpg",
+      "img/catalogo-25-anos/18.jpg", "img/catalogo-25-anos/09.jpg", "img/catalogo-25-anos/16.jpg",
+      "img/catalogo-25-anos/24.jpg", "img/catalogo-25-anos/12.jpg"
+    ],
+    imagens: [
+      "img/catalogo-25-anos/03.jpg",
+      ["img/catalogo-25-anos/02.jpg", "img/catalogo-25-anos/04.jpg"],
+      "img/catalogo-25-anos/05.jpg",
+      ["img/catalogo-25-anos/06.jpg", "img/catalogo-25-anos/07.jpg"],
+      ["img/catalogo-25-anos/08.jpg", "img/catalogo-25-anos/09.jpg"],
+      ["img/catalogo-25-anos/10.jpg", "img/catalogo-25-anos/11.jpg"],
+      ["img/catalogo-25-anos/12.jpg", "img/catalogo-25-anos/14.jpg"],
+      "img/catalogo-25-anos/13.jpg",
+      ["img/catalogo-25-anos/16.jpg", "img/catalogo-25-anos/17.jpg"],
+      "img/catalogo-25-anos/18.jpg",
+      ["img/catalogo-25-anos/15.jpg", "img/catalogo-25-anos/19.jpg"],
+      ["img/catalogo-25-anos/20.jpg", "img/catalogo-25-anos/21.jpg"],
+      ["img/catalogo-25-anos/22.jpg", "img/catalogo-25-anos/23.jpg"],
+      "img/catalogo-25-anos/24.jpg",
+      ["img/catalogo-25-anos/25.jpg", "img/catalogo-25-anos/26.jpg"],
+      ["img/catalogo-25-anos/27.jpg", "img/catalogo-25-anos/28.jpg", "img/catalogo-25-anos/29.jpg"],
+      ["img/catalogo-25-anos/30.jpg", "img/catalogo-25-anos/31.jpg", "img/catalogo-25-anos/32.jpg"]
+    ]
+  },
+  {
+    slug: "catalogo-bienal",
+    titulo: "Catálogo da 14ª Bienal",
+    cliente: "Bienal de Curitiba",
+    ano: "2019",
+    areas: ["Projeto gráfico editorial"],
+    texto: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."],
+    creditos: "",
+    capa: "img/catalogo-bienal/01-capa-aberta.jpg",
+    imagens: [
+      "img/catalogo-bienal/01-capa-aberta.jpg",
+      ["img/catalogo-bienal/02-capa.jpg", "img/catalogo-bienal/03-volumes.jpg"],
+      ["img/catalogo-bienal/04-texto.jpg", "img/catalogo-bienal/05-artista.jpg"],
+      ["img/catalogo-bienal/06-mapa.jpg", "img/catalogo-bienal/07-abertura.jpg"],
+      "img/catalogo-bienal/08-poster.jpg",
+      ["img/catalogo-bienal/09-expo.jpg", "img/catalogo-bienal/10-parede.jpg"]
+    ]
+  },
+  {
+    slug: "breu",
+    titulo: "BREU",
+    cliente: "BREU",
+    ano: "2023",
+    areas: ["Identidade visual", "Branding"],
+    texto: ["Identidade visual para a BREU, um coletivo de profissionais criativos de diversas áreas, ideias, histórias, referências e opiniões.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."],
+    creditos: "",
+    capa: "img/breu/05.jpg",
+    /* semEspaco: imagens coladas umas nas outras, como no Behance */
+    semEspaco: true,
+    carrossel: [
+      "img/breu/05.jpg", "img/breu/08.jpg", "img/breu/06.jpg", "img/breu/09.jpg",
+      "img/breu/14.jpg", "img/breu/10.jpg", "img/breu/13.jpg", "img/breu/11.jpg"
+    ],
+    imagens: [
+      "img/breu/01.jpg", "img/breu/02.jpg", "img/breu/03.jpg", "img/breu/04.jpg",
+      "img/breu/05.jpg", "img/breu/06.jpg", "img/breu/07.jpg", "img/breu/08.jpg",
+      "img/breu/09.jpg", "img/breu/10.jpg", "img/breu/11.jpg", "img/breu/12.jpg",
+      "img/breu/13.jpg", "img/breu/14.jpg", "img/breu/15.jpg"
+    ]
+  },
+  {
+    slug: "conquer-2023",
+    titulo: "Conquer In Company 2023",
+    cliente: "Conquer",
+    ano: "2023",
+    areas: ["Materiais didáticos", "Design editorial"],
+    texto: ["Identidade visual e materiais didáticos da Conquer In Company em 2023: template de aulas, playbooks e e-books.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."],
+    creditos: "Lorem ipsum, Dolor sit",
+    capa: "img/conquer-2023/04-template.jpg",
+    semEspaco: true,
+    carrossel: [
+      "img/conquer-2023/04-template.jpg",
+      "video/conquer-2023/comp-6.mp4",
+      "img/conquer-2023/06-telas.jpg",
+      "video/conquer-2023/comp-1.mp4",
+      "img/conquer-2023/07-telas.jpg",
+      "img/conquer-2023/09-telas.jpg"
+    ],
+    imagens: [
+      "img/conquer-2023/01-head.jpg",
+      "video/conquer-2023/02-frases.mp4",
+      "video/conquer-2023/02-faixa.mp4",
+      "img/conquer-2023/04-template.jpg",
+      "video/conquer-2023/comp-1.mp4",
+      "img/conquer-2023/06-telas.jpg",
+      "video/conquer-2023/comp-2.mp4",
+      "img/conquer-2023/07-telas.jpg",
+      "video/conquer-2023/comp-3.mp4",
+      "video/conquer-2023/comp-5.mp4",
+      "img/conquer-2023/09-telas.jpg",
+      "video/conquer-2023/comp-6.mp4"
+    ]
+  }
+];
+
+/* CURRÍCULO — da mais recente para a mais antiga. */
+const EXPERIENCIA = [
+  { cargo: "Designer Gráfico",     empresa: "LongVision",                    periodo: "2025 – atual", areas: "Experiências de aprendizagem · Direção de arte · Design Editorial" },
+  { cargo: "Design Lead",          empresa: "Escola Conquer In Company",    periodo: "2021 – 2025",  areas: "Gestão criativa de equipes e projetos B2B" },
+  { cargo: "Designer Gráfico",     empresa: "Aurora Produtora de Eventos",  periodo: "2021 – 2022",  areas: "Design gráfico · Eventos" },
+  { cargo: "Designer Editorial",   empresa: "Bienal Internacional de Arte Contemporânea de Curitiba", periodo: "2020 – 2021", areas: "Projetos culturais · Editoriais · Direção de arte" },
+  { cargo: "Designer Gráfico",     empresa: "Bienal Internacional de Arte Contemporânea de Curitiba", periodo: "2019 – 2020", areas: "Comunicação visual · Gráfica · Audiovisual" },
+  { cargo: "Produtor de Conteúdo", empresa: "if – assessoria criativa",     periodo: "2016 – 2018",  areas: "Produção digital · Fotográfica · Motion design" }
+];
+const FORMACAO = [
+  { cargo: "Design Gráfico", empresa: "Universidade Positivo", periodo: "2026 – 2027", areas: "" },
+  { cargo: "Comunicação Organizacional", empresa: "Universidade Tecnológica Federal do Paraná", periodo: "2014 – 2018", areas: "Comunicação institucional · Mercadológica · Administrativa" }
+];
+/* CLIENTES — faixa animada da home. Em "icone", coloque o caminho
+   da imagem (ex.: "img/clientes/ifood.png"); vazio mostra a inicial. */
+const CLIENTES = [
+  { nome: "Rede Globo",         icone: "" },
+  { nome: "Grupo Boticário",    icone: "" },
+  { nome: "Coca-Cola",          icone: "" },
+  { nome: "iFood",              icone: "" },
+  { nome: "Stone",              icone: "" },
+  { nome: "Tokio Marine",       icone: "" },
+  { nome: "Assaí",              icone: "" },
+  { nome: "Electrolux",         icone: "" },
+  { nome: "Bienal de Curitiba", icone: "" },
+  { nome: "Escola Conquer",     icone: "" }
+];
+
+/* Tags abaixo do título das duas páginas */
+const TAGS = ["Design Gráfico", "Direção de Arte", "Design de Aprendizagem", "Design Editorial"];
+
+
+/* ================================================================ */
+const app = document.getElementById("app");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const destaque = s => esc(s).replace(/&lt;(\/?)(b|i|laranja|verde)&gt;/g, (m, fecha, t) =>
+  t === "b" || t === "i" ? `<${fecha}${t}>` : fecha ? "</span>" : `<span class="${t}">`);
+const ph = (ratio, label, cls="") =>
+  `<div class="ph ${cls}" style="aspect-ratio:${ratio}"><span class="label">${esc(label)}</span></div>`;
+const lista = arr => `<ul class="rows">${arr.map(x => `
+  <li><span class="role">${esc(x.cargo)}</span><span class="org">${esc(x.empresa)}</span><span class="when">${esc(x.periodo)}</span>${x.areas ? `<span class="areas">${esc(x.areas)}</span>` : ""}</li>`).join("")}</ul>`;
+
+function intro(h1, comBio = false){
+  return `<section class="intro wrap">
+    <h1>${h1}</h1>
+    <ul class="tags intro-tags">${TAGS.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+    ${comBio ? `<p class="lead">${destaque(BIO)}</p>` : ""}
+  </section>`;
+}
+
+/* Imagens e vídeos: .mp4/.webm viram vídeo em loop, mudo, que só toca quando está na tela */
+const ehVideo = r => /\.(mp4|webm|mov)$/i.test(r);
+const ehMidia = r => /^data:(image|video)|\.(jpe?g|png|webp|gif|avif|mp4|webm|mov)$/i.test(r);
+function midia(src, cls, alt = ""){
+  if (ehVideo(src) || src.startsWith("data:video"))
+    return `<video class="${cls}" src="${esc(src)}#t=0.1" muted loop playsinline preload="metadata"
+      onloadedmetadata="this.style.flexGrow=this.videoWidth/this.videoHeight"></video>`;
+  return `<img class="${cls}" src="${esc(src)}" alt="${esc(alt)}" loading="lazy"
+    onload="this.style.flexGrow=this.naturalWidth/this.naturalHeight">`;
+}
+let observador;
+function ativarVideos(){
+  if (observador) observador.disconnect();
+  const parado = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  observador = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target; v.muted = true;
+    if (e.isIntersecting && !parado) v.play().catch(() => {}); else v.pause();
+  }), { rootMargin: "200px" });
+  app.querySelectorAll("video").forEach(v => {
+    /* vídeo que ainda não está na pasta vira um bloco cinza 16:9 */
+    v.addEventListener("error", () => {
+      const d = document.createElement("div");
+      d.className = v.className; d.style.aspectRatio = "16/9";
+      observador.unobserve(v); v.replaceWith(d);
+    });
+    observador.observe(v);
+  });
+}
+
+function faixaClientes(){
+  const item = c => `<span class="client">${c.icone ? `<img src="${esc(c.icone)}" alt="">` : `<span class="mono">${esc(c.nome.charAt(0).toUpperCase())}</span>`}${esc(c.nome)}</span>`;
+  const grupo = Array(2).fill(CLIENTES.map(item).join("")).join("");
+  return `<div class="marquee" aria-label="Clientes: ${esc(CLIENTES.map(c => c.nome).join(", "))}">
+    <div class="marquee-track" aria-hidden="true">
+      <div class="marquee-group">${grupo}</div><div class="marquee-group">${grupo}</div>
+    </div>
+  </div>`;
+}
+
+function portfolio(){
+  app.innerHTML = intro("<span>O MUNDO É A REFERÊNCIA.</span> <span class='leve'>o design é a consequência.</span>") + faixaClientes() + `
+  <section class="works">
+    ${PROJETOS.map(p => `
+      <article class="proj">
+        <div class="proj-head wrap">
+          <div>
+            <ul class="tags">${p.areas.map(a => `<li>${esc(a)}</li>`).join("")}</ul>
+            <h2 class="proj-title"><a href="#${p.slug}">${esc(p.titulo)}</a></h2>
+          </div>
+          <div class="proj-meta"><span class="yr">${esc(p.ano)}</span><span class="label">${esc(p.cliente)}</span></div>
+          <div class="proj-desc">
+            <p>${esc(p.resumo || p.texto[0])}</p>
+            <a class="proj-cta" href="#${p.slug}">Ver projeto ↗</a>
+          </div>
+        </div>
+        ${carrossel(p)}
+      </article>`).join("")}
+  </section>`;
+}
+
+function carrossel(p){
+  const itens = (p.carrossel || p.imagens).flat();
+  const slide = r => ehMidia(r) ? midia(r, "slide") : `<div class="slide" style="aspect-ratio:${esc(r)}"></div>`;
+  const k = Math.max(1, Math.ceil(8 / itens.length));
+  const grupo = Array(k).fill(itens.map(slide).join("")).join("");
+  return `<a class="carousel" href="#${p.slug}" style="--dur:${itens.length * k * 7}s" aria-label="Ver projeto ${esc(p.titulo)}">
+    <div class="carousel-track"><div class="carousel-group">${grupo}</div><div class="carousel-group" aria-hidden="true">${grupo}</div></div>
+    <span class="pill">Ver projeto ↗</span>
+  </a>`;
+}
+
+function sobre(){
+  app.innerHTML = intro("sobre mim", true) + `
+  <section class="cv wrap">
+    <div class="cv-sec"><span class="label">Experiência</span>${lista(EXPERIENCIA)}</div>
+    <div class="cv-sec"><span class="label">Formação</span>${lista(FORMACAO)}</div>
+  </section>`;
+}
+
+function projeto(p){
+  const prox = PROJETOS[(PROJETOS.indexOf(p) + 1) % PROJETOS.length];
+  app.innerHTML = `
+  <article>
+    <div class="p-top wrap">
+      <a class="back" href="#portfolio">← Portfólio</a>
+      <h1 class="p-title">${esc(p.titulo)}</h1>
+      <div class="p-info">
+        <dl class="p-facts">
+          <div><dt class="label">Cliente</dt><dd>${esc(p.cliente)}</dd></div>
+          <div><dt class="label">Ano</dt><dd>${esc(p.ano)}</dd></div>
+          <div><dt class="label">Área</dt><dd>${esc(p.areas.join(", "))}</dd></div>
+          ${p.creditos ? `<div><dt class="label">Créditos</dt><dd>${esc(p.creditos)}</dd></div>` : ""}
+        </dl>
+        <div class="p-text">${p.texto.map(t => `<p>${esc(t)}</p>`).join("")}</div>
+      </div>
+    </div>
+    <div class="gallery wrap${p.semEspaco ? " colado" : ""}">
+      ${p.imagens.map((r, k) => {
+        const foto = src => midia(src, "shot", p.titulo);
+        if (Array.isArray(r)) return `<div class="row">${r.map(foto).join("")}</div>`;
+        if (ehMidia(r)) return `<div class="full">${foto(r)}</div>`;
+        const [w, h] = r.split("/").map(Number);
+        return ph(r, `Imagem ${String(k+1).padStart(2,"0")} · ${w}:${h}`, w / h > 1.2 ? "full" : "");
+      }).join("")}
+    </div>
+    <div class="wrap">
+      <a class="next" href="#${prox.slug}">
+        <span><span class="label">Próximo projeto</span><strong>${esc(prox.titulo)}</strong></span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </article>`;
+}
+
+function route(){
+  const slug = location.hash.slice(1);
+  const p = PROJETOS.find(x => x.slug === slug);
+  let atual = "portfolio";
+  if (p) projeto(p);
+  else if (slug === "sobre") { sobre(); atual = "sobre"; }
+  else portfolio();
+  ativarVideos();
+  document.querySelectorAll("[data-nav]").forEach(a =>
+    a.dataset.nav === atual ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
+  window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", route);
+route();
+</script>
+
+</body>
+</html>

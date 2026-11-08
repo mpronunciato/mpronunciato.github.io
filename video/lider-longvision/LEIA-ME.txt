@@ -1,0 +1,12 @@
+Copie para esta pasta os arquivos .mp4 da pasta
+"00. Portfolio\22. Líder LongVision\Videos" do seu computador,
+sem mudar os nomes. Os .gif não são necessários.
+
+Arquivos que o site procura aqui:
+Capa01.mp4, Capa02.mp4, Capa03.mp4,
+01_.mp4, 02.mp4, 03_.mp4, 04.mp4, 05.mp4, 06_.mp4, 07.mp4,
+08.mp4, 09.mp4, 10.mp4, 11.mp4, 12.mp4, 13.mp4,
+LLV_Motion_O que leva.mp4,
+LLV_Background 01_vF.mp4,
+LLV_Background_evento_02_vF.mp4,
+LLV_Background_evento_03_vF.mp4
