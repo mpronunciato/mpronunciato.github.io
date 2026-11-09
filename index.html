@@ -61,7 +61,15 @@ nav a[aria-current="page"]{color:var(--fg);border-color:var(--line)}
   font-size:clamp(2.4rem,7vw,6.6rem);line-height:.92;letter-spacing:-.035em;
   margin:0;text-wrap:balance;
 }
-.intro h1 span{display:block}
+.intro h1 > span{display:block}
+.intro h1 .linha{font-weight:400;font-stretch:110%}
+.intro h1 .linha b{font-weight:800}
+.intro h1 .l2{font-size:.6em;line-height:1.02;margin-top:.12em}
+.intro h1 .l3{font-size:max(.34em, 16px);line-height:1.1;margin-top:.35em;letter-spacing:-.01em}
+.intro h1 .menor{font-size:1em}
+.intro h1 u{text-decoration-thickness:.06em;text-underline-offset:.12em}
+.verde{color:var(--accent)}
+.laranja{color:var(--accent2)}
 .intro h1 .leve{font-size:.5em;line-height:1.05;margin-top:.2em}
 .intro .sub{
   margin:clamp(18px,3vw,28px) 0 0;font-weight:300;font-style:italic;
@@ -88,7 +96,7 @@ nav a[aria-current="page"]{color:var(--fg);border-color:var(--line)}
 .marquee:hover .marquee-track{animation-play-state:paused}
 .marquee-group{display:flex;align-items:center;gap:64px;padding-right:64px}
 .client{display:flex;align-items:center;gap:10px;white-space:nowrap;color:var(--muted);font-weight:500;font-size:clamp(1.1rem,1.8vw,1.45rem);letter-spacing:-.005em}
-.client img{width:26px;height:26px;object-fit:contain;border-radius:5px}
+.client img{width:28px;height:28px;object-fit:contain;border-radius:7px;background:#fff;padding:4px;box-sizing:border-box;flex:none}
 .client .mono{display:grid;place-items:center;width:26px;height:26px;border-radius:6px;background:var(--surface);border:1px solid var(--line);color:var(--fg);font-size:12px;font-weight:700}
 @keyframes marquee{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
@@ -152,7 +160,7 @@ nav a[aria-current="page"]{color:var(--fg);border-color:var(--line)}
 .rows .when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
 @media (max-width:560px){.rows li{grid-template-columns:minmax(0,1fr) auto}.rows .org{grid-column:1/-1;grid-row:2}}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.tags li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px}
+.tags li{border:1px solid var(--accent2);border-radius:999px;padding:6px 14px;font-size:15px}
 .intro-tags{margin-top:clamp(24px,3.5vw,36px)}
 
 /* Contato */
@@ -177,6 +185,10 @@ footer .wrap{padding-block:clamp(48px,8vw,96px) 40px}
 .p-facts{display:grid;gap:18px;align-content:start;margin:0}
 .p-facts div{display:grid;gap:2px}
 .p-facts dd{margin:0}
+.p-facts .creditos{display:grid;gap:10px;margin-top:4px}
+.p-facts .creditos span{display:grid;gap:1px}
+.p-facts .creditos small{font-size:13px;color:var(--muted)}
+.p-facts .creditos .respiro{height:4px}
 .p-text p{margin:0 0 1em;max-width:62ch;font-size:clamp(1rem,1.4vw,1.15rem)}
 @media (max-width:720px){.p-info{grid-template-columns:1fr}}
 .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-block:clamp(40px,6vw,72px)}
@@ -202,7 +214,7 @@ footer .wrap{padding-block:clamp(48px,8vw,96px) 40px}
   <div class="wrap">
     <a class="brand" href="#portfolio"><img src="data:image/png;base64,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" alt=""><span>Matheus Pronunciato</span></a>
     <nav aria-label="Principal">
-      <a href="#portfolio" data-nav="portfolio">Portfólio</a>
+      <a href="#portfolio" data-nav="portfolio">portfólio</a>
       <a href="#sobre" data-nav="sobre">sobre mim</a>
     </nav>
   </div>
@@ -249,16 +261,19 @@ const BIO = "Oi, eu sou <b><laranja>Matheus Pronunciato</laranja></b> (<b><i><ve
    capa: imagem do card na página Portfólio.
    imagens: cada caminho ocupa a largura toda; dois caminhos entre
    colchetes [ "a.jpg", "b.jpg" ] ficam lado a lado na mesma altura.
-   Enquanto não houver imagem, "16/9" etc. mostra um bloco provisório. */
+   Enquanto não houver imagem, "16/9" etc. mostra um bloco provisório.
+   creditos: cada linha é ["Função", "Nomes"]; null cria um respiro entre grupos. */
 const PROJETOS = [
   {
     slug: "lemonade-ventures",
     titulo: "Lemonade Ventures",
     cliente: "Lemonade Ventures",
     ano: "2026",
-    areas: ["Template de apresentações", "Design gráfico"],
-    texto: ["Template de apresentações para as aulas e encontros da Lemonade Ventures.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."],
-    creditos: "Lorem ipsum, Dolor sit",
+    areas: ["Design de Aprendizagem", "Design Editorial", "Apresentações"],
+    texto: ["Template de apresentações para as aulas e encontros da Lemonade Ventures."],
+    creditos: [
+      ["Criação", "Matheus Pronunciato e Lucas Suconic"]
+    ],
     capa: "img/lemonade/capa.jpg",
     carrossel: [
       "img/lemonade/slide-00.jpg", "img/lemonade/slide-03.jpg", "img/lemonade/slide-07.jpg",
@@ -288,34 +303,37 @@ const PROJETOS = [
     titulo: "Líder LongVision",
     cliente: "LongVision",
     ano: "2025",
-    areas: ["Materiais didáticos", "Direção de arte"],
-    texto: ["Identidade visual e materiais didáticos do Líder LongVision, um novo nível de treinamento corporativo: aprendizado contínuo, na prática.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."],
-    creditos: "Lorem ipsum, Dolor sit",
+    areas: ["Direção de Arte", "Design de Aprendizagem", "Design Editorial", "Apresentações", "Motion Graphics"],
+    texto: ["Identidade visual e materiais didáticos do Líder LongVision, um treinamento corporativo de lideranças pela empresa LongVision."],
+    creditos: [
+      ["Criação", "Matheus Pronunciato"],
+      ["Motion Graphics", "Daniel Chagas"]
+    ],
     capa: "img/lider-longvision/02-capa.jpg",
     /* carrossel: imagens que passam na home (opcional; sem ele, usa todas) */
     carrossel: [
-      "video/lider-longvision/Capa01.mp4",
+      "video/lider-longvision/capa-01.mp4",
       "img/lider-longvision/03-telas.jpg",
-      "video/lider-longvision/Capa02.mp4",
+      "video/lider-longvision/capa-02.mp4",
       "img/lider-longvision/04-telas.jpg",
-      "video/lider-longvision/Capa03.mp4"
+      "video/lider-longvision/capa-03.mp4"
     ],
     imagens: [
       "img/lider-longvision/01-banner.jpg",
-      "video/lider-longvision/Capa01.mp4",
-      ["video/lider-longvision/Capa02.mp4", "video/lider-longvision/Capa03.mp4"],
+      "video/lider-longvision/capa-01.mp4",
+      ["video/lider-longvision/capa-02.mp4", "video/lider-longvision/capa-03.mp4"],
       "img/lider-longvision/03-telas.jpg",
-      ["video/lider-longvision/01_.mp4", "video/lider-longvision/02.mp4"],
-      ["video/lider-longvision/03_.mp4", "video/lider-longvision/04.mp4"],
+      ["video/lider-longvision/01.mp4", "video/lider-longvision/02.mp4"],
+      ["video/lider-longvision/03.mp4", "video/lider-longvision/04.mp4"],
       "img/lider-longvision/04-telas.jpg",
-      ["video/lider-longvision/05.mp4", "video/lider-longvision/06_.mp4"],
+      ["video/lider-longvision/05.mp4", "video/lider-longvision/06.mp4"],
       ["video/lider-longvision/07.mp4", "video/lider-longvision/08.mp4"],
       ["video/lider-longvision/09.mp4", "video/lider-longvision/10.mp4"],
       ["video/lider-longvision/11.mp4", "video/lider-longvision/12.mp4"],
       "video/lider-longvision/13.mp4",
-      "video/lider-longvision/LLV_Motion_O que leva.mp4",
-      "video/lider-longvision/LLV_Background 01_vF.mp4",
-      ["video/lider-longvision/LLV_Background_evento_02_vF.mp4", "video/lider-longvision/LLV_Background_evento_03_vF.mp4"],
+      "video/lider-longvision/motion-o-que-leva.mp4",
+      "video/lider-longvision/background-01.mp4",
+      ["video/lider-longvision/background-02.mp4", "video/lider-longvision/background-03.mp4"],
       "img/lider-longvision/02-capa.jpg"
     ]
   },
@@ -324,9 +342,18 @@ const PROJETOS = [
     titulo: "Catálogo 25 anos da Bienal",
     cliente: "Bienal de Curitiba",
     ano: "2019",
-    areas: ["Projeto gráfico editorial"],
-    texto: ["Catálogo comemorativo dos 25 anos da Bienal Internacional de Arte Contemporânea de Curitiba, em edição bilíngue.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."],
-    creditos: "",
+    areas: ["Design Editorial"],
+    texto: ["Catálogo comemorativo da Bienal Internacional de Arte Contemporânea de Curitiba, em edição bilíngue. 25 anos de Bienal em mais de mil páginas."],
+    creditos: [
+      ["Projeto Gráfico", "Martím Fernandes e Matheus Pronunciato"],
+      ["Diagramação", "Matheus Pronunciato"],
+      ["Coordenação Editorial", "Fernanda Maldonado"],
+      ["Coordenação Institucional", "Carolina Loch"],
+      ["Pesquisa Editorial", "Fernanda Maldonado, Vitoria Gabardo, Letícia Pille, Amanda Renaly"],
+      ["Revisão e Tradução", "Fernanda Maldonado, Vitoria Gabardo, Letícia Pille"],
+      null,
+      ["Fotografias", "Gabriela Paim / Efêmera Short Films"]
+    ],
     capa: "img/catalogo-25-anos/05.jpg",
     carrossel: [
       "img/catalogo-25-anos/03.jpg", "img/catalogo-25-anos/13.jpg", "img/catalogo-25-anos/04.jpg",
@@ -355,12 +382,15 @@ const PROJETOS = [
   },
   {
     slug: "catalogo-bienal",
-    titulo: "Catálogo da 14ª Bienal",
+    titulo: "14ª Bienal de Arte de Curitiba",
     cliente: "Bienal de Curitiba",
     ano: "2019",
-    areas: ["Projeto gráfico editorial"],
-    texto: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."],
-    creditos: "",
+    areas: ["Direção de Arte", "Design Editorial"],
+    texto: ["Identidade visual para a 14ª edição da Bienal Internacional de Arte Contemporânea de Curitiba e desenvolvimento do seu catálogo de arte."],
+    creditos: [
+      ["Direção de Arte", "Matheus Pronunciato e Martím Fernandes"],
+      ["Projeto Gráfico e Diagramação", "Matheus Pronunciato"]
+    ],
     capa: "img/catalogo-bienal/01-capa-aberta.jpg",
     imagens: [
       "img/catalogo-bienal/01-capa-aberta.jpg",
@@ -376,9 +406,11 @@ const PROJETOS = [
     titulo: "BREU",
     cliente: "BREU",
     ano: "2023",
-    areas: ["Identidade visual", "Branding"],
-    texto: ["Identidade visual para a BREU, um coletivo de profissionais criativos de diversas áreas, ideias, histórias, referências e opiniões.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."],
-    creditos: "",
+    areas: ["Direção de Arte"],
+    texto: ["Identidade visual para a BREU, um coletivo de profissionais criativos de diversas áreas, ideias, histórias, referências e opiniões."],
+    creditos: [
+      ["", "Matheus Pronunciato"]
+    ],
     capa: "img/breu/05.jpg",
     /* semEspaco: imagens coladas umas nas outras, como no Behance */
     semEspaco: true,
@@ -398,9 +430,12 @@ const PROJETOS = [
     titulo: "Conquer In Company 2023",
     cliente: "Conquer",
     ano: "2023",
-    areas: ["Materiais didáticos", "Design editorial"],
-    texto: ["Identidade visual e materiais didáticos da Conquer In Company em 2023: template de aulas, playbooks e e-books.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."],
-    creditos: "Lorem ipsum, Dolor sit",
+    areas: ["Direção de Arte", "Design de Aprendizagem", "Design Editorial", "Direção Criativa"],
+    texto: ["Gestão do projeto de identidade visual e materiais didáticos da Conquer In Company em 2023: template de aulas, playbooks e e-books."],
+    creditos: [
+      ["Direção de Arte", "Matheus Pronunciato"],
+      ["Design Gráfico", "Luigi Laurito, Lucas Suconic, Daniele Ferreira, Jeovanna Meira, Erick Gomes, Jean Tavares, Renata Castro, Jéssica Tomaz"]
+    ],
     capa: "img/conquer-2023/04-template.jpg",
     semEspaco: true,
     carrossel: [
@@ -444,20 +479,19 @@ const FORMACAO = [
 /* CLIENTES — faixa animada da home. Em "icone", coloque o caminho
    da imagem (ex.: "img/clientes/ifood.png"); vazio mostra a inicial. */
 const CLIENTES = [
-  { nome: "Rede Globo",         icone: "" },
-  { nome: "Grupo Boticário",    icone: "" },
-  { nome: "Coca-Cola",          icone: "" },
-  { nome: "iFood",              icone: "" },
-  { nome: "Stone",              icone: "" },
-  { nome: "Tokio Marine",       icone: "" },
-  { nome: "Assaí",              icone: "" },
-  { nome: "Electrolux",         icone: "" },
-  { nome: "Bienal de Curitiba", icone: "" },
-  { nome: "Escola Conquer",     icone: "" }
+  { nome: "Rede Globo",         icone: "img/clientes/globo.png" },
+  { nome: "Grupo Boticário",    icone: "img/clientes/boticario.png" },
+  { nome: "Coca-Cola",          icone: "img/clientes/coca-cola.svg" },
+  { nome: "iFood",              icone: "img/clientes/ifood.png" },
+  { nome: "Stone",              icone: "img/clientes/stone.png" },
+  { nome: "Tokio Marine",       icone: "img/clientes/tokio-marine.png" },
+  { nome: "Assaí",              icone: "img/clientes/assai.png" },
+  { nome: "Electrolux",         icone: "img/clientes/electrolux.png" },
+  { nome: "Escola Conquer",     icone: "img/clientes/escola-conquer.png" }
 ];
 
 /* Tags abaixo do título das duas páginas */
-const TAGS = ["Design Gráfico", "Direção de Arte", "Design de Aprendizagem", "Design Editorial"];
+const TAGS = ["Design Gráfico", "Direção de Arte", "Design de Aprendizagem", "Design Editorial", "Gestão de Projetos"];
 
 
 /* ================================================================ */
@@ -518,7 +552,7 @@ function faixaClientes(){
 }
 
 function portfolio(){
-  app.innerHTML = intro("<span>O MUNDO É A REFERÊNCIA.</span> <span class='leve'>o design é a consequência.</span>") + faixaClientes() + `
+  app.innerHTML = intro("<span>Matheus Pronunciato,</span> <span class='linha l2'><i><span class='verde'>direção de arte</span> <b>&amp;</b> <span class='laranja'>design editorial</span></i>,</span> <span class='linha l3'>ou <small class='menor'><u><i>criações em geral</i></u></small></span>") + faixaClientes() + `
   <section class="works">
     ${PROJETOS.map(p => `
       <article class="proj">
@@ -562,14 +596,16 @@ function projeto(p){
   app.innerHTML = `
   <article>
     <div class="p-top wrap">
-      <a class="back" href="#portfolio">← Portfólio</a>
+      <a class="back" href="#portfolio">← portfólio</a>
       <h1 class="p-title">${esc(p.titulo)}</h1>
       <div class="p-info">
         <dl class="p-facts">
           <div><dt class="label">Cliente</dt><dd>${esc(p.cliente)}</dd></div>
           <div><dt class="label">Ano</dt><dd>${esc(p.ano)}</dd></div>
-          <div><dt class="label">Área</dt><dd>${esc(p.areas.join(", "))}</dd></div>
-          ${p.creditos ? `<div><dt class="label">Créditos</dt><dd>${esc(p.creditos)}</dd></div>` : ""}
+          <div><dt class="label">${p.areas.length > 1 ? "Áreas" : "Área"}</dt><dd>${esc(p.areas.join(", "))}</dd></div>
+          ${p.creditos && p.creditos.length ? `<div><dt class="label">Créditos</dt><dd class="creditos">${p.creditos.map(c => c
+            ? `<span>${c[0] ? `<small>${esc(c[0])}</small>` : ""}${esc(c[1])}</span>`
+            : `<span class="respiro"></span>`).join("")}</dd></div>` : ""}
         </dl>
         <div class="p-text">${p.texto.map(t => `<p>${esc(t)}</p>`).join("")}</div>
       </div>
