@@ -122,6 +122,8 @@ nav a[aria-current="page"]{color:var(--fg);border-color:var(--line)}
 .proj{display:grid;gap:28px;padding-block:clamp(36px,5vw,64px) 0}
 .proj-head{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.55fr) minmax(0,1.3fr);gap:20px 32px;align-items:start}
 @media (max-width:900px){.proj-head{grid-template-columns:1fr}}
+.proj-head .proj-title{margin:0}
+.proj-head .tags{margin-top:16px;gap:6px}
 .proj-head .tags li{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px}
 .proj-title{color:var(--accent);font-weight:800;font-stretch:118%;font-size:clamp(1.9rem,4.4vw,3.8rem);line-height:.95;letter-spacing:-.03em;margin:14px 0 0;text-wrap:balance}
 .proj-title a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
@@ -698,8 +700,8 @@ function portfolio(){
       <article class="proj">
         <div class="proj-head wrap">
           <div>
-            <ul class="tags">${p.areas.map(a => `<li>${esc(a)}</li>`).join("")}</ul>
             <h2 class="proj-title"><a href="#${p.slug}">${esc(p.titulo)}</a></h2>
+            <ul class="tags">${p.areas.map(a => `<li>${esc(a)}</li>`).join("")}</ul>
           </div>
           <div class="proj-meta"><span class="yr">${esc(p.ano)}</span><span class="label">${esc(p.cliente)}</span></div>
           <div class="proj-desc">
