@@ -146,7 +146,49 @@ nav a[aria-current="page"]{color:var(--fg);border-color:var(--line)}
 @keyframes slide{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.carousel{overflow-x:auto}.carousel-track{animation:none}}
 
-/* Sobre mim / currículo */
+/* Sobre mim — grade de 4 colunas: bio/nome/tags | cargo | áreas */
+.sb{--g:clamp(20px,3vw,40px);padding-block:clamp(40px,7vw,96px) clamp(24px,4vw,48px)}
+.sb-titulo{font-family:var(--display);font-weight:800;font-stretch:100%;font-size:clamp(3rem,10vw,8.5rem);line-height:.85;letter-spacing:-.05em;margin:0 0 clamp(40px,6vw,80px);text-wrap:balance}
+.sb-grid,.sb-contatos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--g)}
+.sb-esq{display:flex;flex-direction:column;gap:clamp(28px,3.5vw,44px);align-items:flex-start;min-width:0}
+.sb-bio{margin:0;max-width:44ch;font-size:clamp(15px,1.25vw,17px);line-height:1.5;text-wrap:pretty}
+.sb-bio .laranja{color:var(--accent2)}.sb-bio .verde{color:var(--accent)}
+.sb-nome{display:grid;gap:2px;font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.1;letter-spacing:-.02em}
+.sb-nome b{font-weight:700;color:var(--accent2)}
+.sb-nome span{font-weight:300}
+.sb-tags{max-width:460px;gap:6px}
+.sb-tags li{font-size:14px;padding:4px 12px}
+.sb-dir{display:grid;gap:clamp(48px,7vw,96px);min-width:0;align-content:start}
+.sb-rot{grid-column:1/-1;margin:0 0 clamp(20px,2.5vw,32px);font-size:14px;font-weight:400;color:var(--muted)}
+.sb-bloco,.sb-item{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--g)}
+.sb-lista{grid-column:1/-1;list-style:none;margin:0;padding:0;display:grid;gap:clamp(40px,5.5vw,72px)}
+.sb-form .sb-rot{grid-column:1}
+.sb-form .sb-lista{grid-column:2}
+.sb-cargo{display:grid;gap:2px;font-size:15px;line-height:1.35}
+.sb-cargo b{font-weight:500;text-transform:uppercase;letter-spacing:.02em}
+.sb-areas{margin:0;font-size:15px;line-height:1.35;font-style:italic;color:var(--fg);opacity:.85;padding-top:1.35em}
+.sb-areas span{white-space:nowrap}
+.sb-cta{color:var(--accent2);font-family:var(--display);font-weight:800;font-stretch:100%;font-size:clamp(2rem,5.2vw,4.4rem);line-height:.92;letter-spacing:-.04em;margin:clamp(72px,10vw,140px) 0 clamp(28px,3.5vw,44px);text-wrap:balance}
+.sb-contatos{margin-top:0}
+.sb-contatos > div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--g)}
+.sb-contatos a{display:grid;gap:6px;align-content:start;min-width:0}
+.sb-contatos .rot{font-size:13px;color:var(--muted)}
+.sb-contatos strong{font-weight:400;font-size:clamp(1.05rem,1.6vw,1.35rem);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;overflow-wrap:anywhere;transition:color .2s}
+.sb-contatos a:hover strong{color:var(--accent2)}
+html[data-pagina="sobre"] footer .contacts,html[data-pagina="sobre"] footer .cta{display:none}
+html[data-pagina="sobre"] footer .wrap{padding-block:28px}
+@media (max-width:900px){
+  .sb-grid{grid-template-columns:1fr;gap:clamp(56px,10vw,80px)}
+  .sb-contatos{grid-template-columns:1fr;gap:28px}
+}
+@media (max-width:520px){
+  .sb-bloco,.sb-item,.sb-contatos > div{grid-template-columns:1fr;gap:6px}
+  .sb-form .sb-rot,.sb-form .sb-lista{grid-column:1}
+  .sb-areas{padding-top:4px}
+  .sb-contatos > div{gap:28px}
+}
+
+/* Sobre mim / currículo (antigo) */
 .cv{padding-block:clamp(16px,3vw,32px)}
 .cv-sec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:24px;border-top:1px solid var(--line);padding-block:28px clamp(40px,6vw,64px)}
 @media (max-width:720px){.cv-sec{grid-template-columns:1fr;gap:16px}}
@@ -205,6 +247,92 @@ footer .wrap{padding-block:clamp(48px,8vw,96px) 40px}
 .next strong{color:var(--accent);display:block;font-weight:800;font-stretch:118%;font-size:clamp(1.5rem,4vw,2.8rem);letter-spacing:-.025em;line-height:1;margin-top:8px}
 .next:hover strong{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
 .arrow{font-size:clamp(1.5rem,4vw,2.8rem);line-height:1}
+
+[hidden]{display:none!important}
+/* ================================================================
+   BOTÃO FIXO DE CONTATO
+   ================================================================ */
+.fab{
+  position:fixed;z-index:60;
+  right:calc(env(safe-area-inset-right,0px) + 16px);
+  bottom:calc(env(safe-area-inset-bottom,0px) + 16px);
+  display:flex;flex-direction:column-reverse;align-items:flex-end;gap:10px;
+  transition:opacity .3s,transform .3s;
+}
+.fab.escondido{opacity:0;transform:translateY(14px);pointer-events:none}
+.fab-btn{
+  font:600 15px var(--body);background:var(--accent2);color:var(--bg);
+  border:0;border-radius:999px;padding:12px 20px;cursor:pointer;
+  box-shadow:0 10px 30px rgba(255,128,0,.28);transition:transform .2s;
+}
+.fab-btn:hover{transform:translateY(-2px)}
+.fab-btn:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.fab-painel{
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px;
+  display:grid;min-width:min(280px,calc(100vw - 32px));box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+.fab-painel a{display:grid;gap:2px;padding:10px 12px;border-radius:10px;font-size:15px}
+.fab-painel a:hover,.fab-painel a:focus-visible{background:var(--line);outline:none}
+
+/* ================================================================
+   PROJETO — leitura / folha de contato
+   ================================================================ */
+.p-modos{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:clamp(32px,5vw,56px) 0}
+.modos{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.modos button{font:500 14px var(--body);color:var(--muted);background:none;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+.modos button[aria-selected="true"]{background:var(--fg);color:var(--bg)}
+.modos button:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.dica kbd{font:inherit;border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-inline:2px}
+.p-modos + .gallery{padding-top:20px}
+.folha{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding-block:20px clamp(40px,6vw,72px)}
+.miniatura{
+  position:relative;aspect-ratio:4/3;background:var(--surface);border:1px solid var(--line);
+  border-radius:4px;overflow:hidden;padding:0;cursor:pointer;transition:border-color .2s,transform .2s;
+}
+.miniatura img,.miniatura video{width:100%;height:100%;object-fit:cover;display:block}
+.miniatura span{position:absolute;left:6px;bottom:5px;font:500 11px var(--mono);color:var(--fg);background:rgba(0,0,0,.55);padding:2px 6px;border-radius:999px}
+.miniatura:hover,.miniatura:focus-visible{border-color:var(--accent2);transform:translateY(-2px);outline:none}
+.gallery .shot.marcado{outline:2px solid var(--accent2);outline-offset:4px;transition:outline-color 1.2s}
+
+/* easter egg das sobremesas */
+.lead .sobremesa{cursor:pointer;text-decoration:underline dotted;text-underline-offset:5px;text-decoration-thickness:2px}
+.lead .sobremesa:focus-visible{outline:2px solid var(--accent2);outline-offset:3px;border-radius:3px}
+.doce{position:fixed;top:-60px;z-index:65;pointer-events:none;animation:cair var(--d) cubic-bezier(.35,.1,.6,1) var(--atraso) forwards}
+@keyframes cair{to{transform:translateY(calc(100vh + 120px)) rotate(var(--giro))}}
+.aviso{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:65;background:var(--accent2);color:var(--bg);font-weight:600;padding:10px 18px;border-radius:999px}
+
+
+/* ================================================================
+   HOME — PILHA DE CARTAS
+   ================================================================ */
+.carousel.reverso .carousel-track{animation-direction:reverse}
+.pilha{padding-block:clamp(40px,6vw,80px) 0;display:block}
+.carta{position:sticky;top:calc(20px + var(--i) * 14px);margin-bottom:7vh;transform-origin:50% 0;will-change:transform}
+.carta:last-child{margin-bottom:0}
+.carta-in{
+  display:grid;grid-template-rows:auto minmax(0,1fr);height:min(86vh,860px);
+  background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  box-shadow:0 -24px 60px rgba(0,0,0,.5);
+}
+.carta-topo{
+  display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,.9fr);gap:20px 36px;align-items:start;
+  padding:clamp(20px,2.6vw,34px);
+}
+.carta-num{font:500 13px var(--mono);color:var(--muted);letter-spacing:.06em;padding-top:12px;font-variant-numeric:tabular-nums}
+.carta .proj-title{margin:0}
+.carta-titulo .tags{margin-top:16px;gap:6px}
+.carta-titulo .tags li{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px}
+.carta-lado{display:grid;gap:12px;align-content:start}
+.carta-lado p{margin:0;color:var(--fg);max-width:46ch}
+.carta-lado .proj-cta{justify-self:start;margin-top:4px}
+.carta .carousel{height:auto;min-height:0}
+.carta .carousel-track{height:100%}
+@media (max-width:900px){
+  .carta-topo{grid-template-columns:1fr;gap:12px}
+  .carta-in{height:auto}
+  .carta .carousel{height:clamp(220px,46vw,380px)}
+  .carta{top:calc(12px + var(--i) * 8px);margin-bottom:5vh}
+}
 </style>
 </head>
 <body>
@@ -246,6 +374,15 @@ footer .wrap{padding-block:clamp(48px,8vw,96px) 40px}
   </div>
 </footer>
 
+<div class="fab" id="fab">
+  <button type="button" class="fab-btn" aria-expanded="false" aria-controls="fab-painel">vamos criar juntos?</button>
+  <div class="fab-painel" id="fab-painel" hidden>
+    <a href="https://wa.me/554191545658" target="_blank" rel="noopener"><span class="label">WhatsApp</span>+55 41 9154-5658</a>
+    <a href="https://www.linkedin.com/in/matheus-pronunciato-416ba4142/" target="_blank" rel="noopener"><span class="label">LinkedIn</span>matheus-pronunciato ↗</a>
+    <a href="mailto:mpronunciato@gmail.com"><span class="label">E-mail</span>mpronunciato@gmail.com</a>
+  </div>
+</div>
+
 <script>
 /* ================================================================
    CONTEÚDO DO SITE — edite só esta parte.
@@ -254,7 +391,10 @@ footer .wrap{padding-block:clamp(48px,8vw,96px) 40px}
 /* Bio em destaque no topo da página sobre mim.
    Marcações (podem ser combinadas):
    <b>negrito</b>  <i>itálico</i>  <laranja>laranja</laranja>  <verde>verde</verde> */
-const BIO = "Oi, eu sou <b><laranja>Matheus Pronunciato</laranja></b> (<b><i><verde>mit</verde></i></b>), designer gráfico, de experiências de aprendizagem, e também de <laranja>belas sobremesas nas horas vagas</laranja>. Atualmente <b><i><verde>designer na LongVision</verde></i></b>.";
+const BIO = "oi, eu sou <b><laranja>matheus pronunciato</laranja></b> (<b><i><verde>mit</verde></i></b>), gosto de narrativas visuais e de livros bem diagramados. sou designer gráfico/editorial com um quê a mais em experiências de aprendizagem.";
+/* Nome e cargo abaixo da bio */
+const NOME = "Matheus Pronunciato";
+const CARGO_ATUAL = "Designer Gráfico";
 
 /* PROJETOS — para adicionar um novo, copie um bloco { ... },
    cole na posição desejada e troque os textos.
@@ -265,37 +405,39 @@ const BIO = "Oi, eu sou <b><laranja>Matheus Pronunciato</laranja></b> (<b><i><ve
    creditos: cada linha é ["Função", "Nomes"]; null cria um respiro entre grupos. */
 const PROJETOS = [
   {
-    slug: "lemonade-ventures",
-    titulo: "Lemonade Ventures",
-    cliente: "Lemonade Ventures",
-    ano: "2026",
-    areas: ["Design de Aprendizagem", "Design Editorial", "Apresentações"],
-    texto: ["Template de apresentações para as aulas e encontros da Lemonade Ventures."],
+    slug: "conquer-2023",
+    titulo: "Conquer In Company 2023",
+    cliente: "Conquer",
+    ano: "2023",
+    areas: ["Direção de Arte", "Design de Aprendizagem", "Design Editorial", "Direção Criativa"],
+    texto: ["Gestão do projeto de identidade visual e materiais didáticos da Conquer In Company em 2023: template de aulas, playbooks e e-books."],
     creditos: [
-      ["Criação", "Matheus Pronunciato e Lucas Suconic"]
+      ["Direção de Arte", "Matheus Pronunciato"],
+      ["Design Gráfico", "Luigi Laurito, Lucas Suconic, Daniele Ferreira, Jeovanna Meira, Erick Gomes, Jean Tavares, Renata Castro, Jéssica Tomaz"]
     ],
-    capa: "img/lemonade/capa.jpg",
+    capa: "img/conquer-2023/04-template.jpg",
+    semEspaco: true,
     carrossel: [
-      "img/lemonade/slide-00.jpg", "img/lemonade/slide-03.jpg", "img/lemonade/slide-07.jpg",
-      "img/lemonade/slide-04.jpg", "img/lemonade/slide-11.jpg", "img/lemonade/slide-15.jpg",
-      "img/lemonade/slide-08.jpg", "img/lemonade/slide-17.jpg"
+      "img/conquer-2023/04-template.jpg",
+      "video/conquer-2023/comp-6.mp4",
+      "img/conquer-2023/06-telas.jpg",
+      "video/conquer-2023/comp-1.mp4",
+      "img/conquer-2023/07-telas.jpg",
+      "img/conquer-2023/09-telas.jpg"
     ],
     imagens: [
-      "img/lemonade/slide-00.jpg",
-      ["img/lemonade/slide-01.jpg", "img/lemonade/slide-02.jpg"],
-      ["img/lemonade/slide-03.jpg", "img/lemonade/slide-04.jpg"],
-      ["img/lemonade/slide-05.jpg", "img/lemonade/slide-06.jpg"],
-      "img/lemonade/slide-07.jpg",
-      ["img/lemonade/slide-08.jpg", "img/lemonade/slide-09.jpg"],
-      ["img/lemonade/slide-10.jpg", "img/lemonade/slide-12.jpg"],
-      "img/lemonade/slide-11.jpg",
-      ["img/lemonade/slide-13.jpg", "img/lemonade/slide-14.jpg"],
-      "img/lemonade/slide-15.jpg",
-      ["img/lemonade/slide-16.jpg", "img/lemonade/slide-17.jpg"],
-      ["img/lemonade/slide-18.jpg", "img/lemonade/slide-19.jpg"],
-      ["img/lemonade/slide-20.jpg", "img/lemonade/slide-21.jpg"],
-      ["img/lemonade/slide-22.jpg", "img/lemonade/slide-23.jpg"],
-      "img/lemonade/slide-24.jpg"
+      "img/conquer-2023/01-head.jpg",
+      "video/conquer-2023/02-frases.mp4",
+      "video/conquer-2023/02-faixa.mp4",
+      "img/conquer-2023/04-template.jpg",
+      "video/conquer-2023/comp-1.mp4",
+      "img/conquer-2023/06-telas.jpg",
+      "video/conquer-2023/comp-2.mp4",
+      "img/conquer-2023/07-telas.jpg",
+      "video/conquer-2023/comp-3.mp4",
+      "video/conquer-2023/comp-5.mp4",
+      "img/conquer-2023/09-telas.jpg",
+      "video/conquer-2023/comp-6.mp4"
     ]
   },
   {
@@ -335,6 +477,61 @@ const PROJETOS = [
       "video/lider-longvision/background-01.mp4",
       ["video/lider-longvision/background-02.mp4", "video/lider-longvision/background-03.mp4"],
       "img/lider-longvision/02-capa.jpg"
+    ]
+  },
+  {
+    slug: "lemonade-ventures",
+    titulo: "Lemonade Ventures",
+    cliente: "Lemonade Ventures",
+    ano: "2026",
+    areas: ["Design de Aprendizagem", "Design Editorial", "Apresentações"],
+    texto: ["Template de apresentações para as aulas e encontros da Lemonade Ventures."],
+    creditos: [
+      ["Criação", "Matheus Pronunciato e Lucas Suconic"]
+    ],
+    capa: "img/lemonade/capa.jpg",
+    carrossel: [
+      "img/lemonade/slide-00.jpg", "img/lemonade/slide-03.jpg", "img/lemonade/slide-07.jpg",
+      "img/lemonade/slide-04.jpg", "img/lemonade/slide-11.jpg", "img/lemonade/slide-15.jpg",
+      "img/lemonade/slide-08.jpg", "img/lemonade/slide-17.jpg"
+    ],
+    imagens: [
+      "img/lemonade/slide-00.jpg",
+      ["img/lemonade/slide-01.jpg", "img/lemonade/slide-02.jpg"],
+      ["img/lemonade/slide-03.jpg", "img/lemonade/slide-04.jpg"],
+      ["img/lemonade/slide-05.jpg", "img/lemonade/slide-06.jpg"],
+      "img/lemonade/slide-07.jpg",
+      ["img/lemonade/slide-08.jpg", "img/lemonade/slide-09.jpg"],
+      ["img/lemonade/slide-10.jpg", "img/lemonade/slide-12.jpg"],
+      "img/lemonade/slide-11.jpg",
+      ["img/lemonade/slide-13.jpg", "img/lemonade/slide-14.jpg"],
+      "img/lemonade/slide-15.jpg",
+      ["img/lemonade/slide-16.jpg", "img/lemonade/slide-17.jpg"],
+      ["img/lemonade/slide-18.jpg", "img/lemonade/slide-19.jpg"],
+      ["img/lemonade/slide-20.jpg", "img/lemonade/slide-21.jpg"],
+      ["img/lemonade/slide-22.jpg", "img/lemonade/slide-23.jpg"],
+      "img/lemonade/slide-24.jpg"
+    ]
+  },
+  {
+    slug: "catalogo-bienal",
+    titulo: "14ª Bienal de Arte de Curitiba",
+    cliente: "Bienal de Curitiba",
+    ano: "2019",
+    areas: ["Direção de Arte", "Design Editorial"],
+    texto: ["Identidade visual para a 14ª edição da Bienal Internacional de Arte Contemporânea de Curitiba e desenvolvimento do seu catálogo de arte."],
+    creditos: [
+      ["Direção de Arte", "Matheus Pronunciato e Martím Fernandes"],
+      ["Projeto Gráfico e Diagramação", "Matheus Pronunciato"]
+    ],
+    capa: "img/catalogo-bienal/01-capa-aberta.jpg",
+    imagens: [
+      "img/catalogo-bienal/01-capa-aberta.jpg",
+      ["img/catalogo-bienal/02-capa.jpg", "img/catalogo-bienal/03-volumes.jpg"],
+      ["img/catalogo-bienal/04-texto.jpg", "img/catalogo-bienal/05-artista.jpg"],
+      ["img/catalogo-bienal/06-mapa.jpg", "img/catalogo-bienal/07-abertura.jpg"],
+      "img/catalogo-bienal/08-poster.jpg",
+      ["img/catalogo-bienal/09-expo.jpg", "img/catalogo-bienal/10-parede.jpg"]
     ]
   },
   {
@@ -381,27 +578,6 @@ const PROJETOS = [
     ]
   },
   {
-    slug: "catalogo-bienal",
-    titulo: "14ª Bienal de Arte de Curitiba",
-    cliente: "Bienal de Curitiba",
-    ano: "2019",
-    areas: ["Direção de Arte", "Design Editorial"],
-    texto: ["Identidade visual para a 14ª edição da Bienal Internacional de Arte Contemporânea de Curitiba e desenvolvimento do seu catálogo de arte."],
-    creditos: [
-      ["Direção de Arte", "Matheus Pronunciato e Martím Fernandes"],
-      ["Projeto Gráfico e Diagramação", "Matheus Pronunciato"]
-    ],
-    capa: "img/catalogo-bienal/01-capa-aberta.jpg",
-    imagens: [
-      "img/catalogo-bienal/01-capa-aberta.jpg",
-      ["img/catalogo-bienal/02-capa.jpg", "img/catalogo-bienal/03-volumes.jpg"],
-      ["img/catalogo-bienal/04-texto.jpg", "img/catalogo-bienal/05-artista.jpg"],
-      ["img/catalogo-bienal/06-mapa.jpg", "img/catalogo-bienal/07-abertura.jpg"],
-      "img/catalogo-bienal/08-poster.jpg",
-      ["img/catalogo-bienal/09-expo.jpg", "img/catalogo-bienal/10-parede.jpg"]
-    ]
-  },
-  {
     slug: "breu",
     titulo: "BREU",
     cliente: "BREU",
@@ -424,57 +600,18 @@ const PROJETOS = [
       "img/breu/09.jpg", "img/breu/10.jpg", "img/breu/11.jpg", "img/breu/12.jpg",
       "img/breu/13.jpg", "img/breu/14.jpg", "img/breu/15.jpg"
     ]
-  },
-  {
-    slug: "conquer-2023",
-    titulo: "Conquer In Company 2023",
-    cliente: "Conquer",
-    ano: "2023",
-    areas: ["Direção de Arte", "Design de Aprendizagem", "Design Editorial", "Direção Criativa"],
-    texto: ["Gestão do projeto de identidade visual e materiais didáticos da Conquer In Company em 2023: template de aulas, playbooks e e-books."],
-    creditos: [
-      ["Direção de Arte", "Matheus Pronunciato"],
-      ["Design Gráfico", "Luigi Laurito, Lucas Suconic, Daniele Ferreira, Jeovanna Meira, Erick Gomes, Jean Tavares, Renata Castro, Jéssica Tomaz"]
-    ],
-    capa: "img/conquer-2023/04-template.jpg",
-    semEspaco: true,
-    carrossel: [
-      "img/conquer-2023/04-template.jpg",
-      "video/conquer-2023/comp-6.mp4",
-      "img/conquer-2023/06-telas.jpg",
-      "video/conquer-2023/comp-1.mp4",
-      "img/conquer-2023/07-telas.jpg",
-      "img/conquer-2023/09-telas.jpg"
-    ],
-    imagens: [
-      "img/conquer-2023/01-head.jpg",
-      "video/conquer-2023/02-frases.mp4",
-      "video/conquer-2023/02-faixa.mp4",
-      "img/conquer-2023/04-template.jpg",
-      "video/conquer-2023/comp-1.mp4",
-      "img/conquer-2023/06-telas.jpg",
-      "video/conquer-2023/comp-2.mp4",
-      "img/conquer-2023/07-telas.jpg",
-      "video/conquer-2023/comp-3.mp4",
-      "video/conquer-2023/comp-5.mp4",
-      "img/conquer-2023/09-telas.jpg",
-      "video/conquer-2023/comp-6.mp4"
-    ]
   }
 ];
 
 /* CURRÍCULO — da mais recente para a mais antiga. */
 const EXPERIENCIA = [
-  { cargo: "Designer Gráfico",     empresa: "LongVision",                    periodo: "2025 – atual", areas: "Experiências de aprendizagem · Direção de arte · Design Editorial" },
-  { cargo: "Design Lead",          empresa: "Escola Conquer In Company",    periodo: "2021 – 2025",  areas: "Gestão criativa de equipes e projetos B2B" },
-  { cargo: "Designer Gráfico",     empresa: "Aurora Produtora de Eventos",  periodo: "2021 – 2022",  areas: "Design gráfico · Eventos" },
-  { cargo: "Designer Editorial",   empresa: "Bienal Internacional de Arte Contemporânea de Curitiba", periodo: "2020 – 2021", areas: "Projetos culturais · Editoriais · Direção de arte" },
-  { cargo: "Designer Gráfico",     empresa: "Bienal Internacional de Arte Contemporânea de Curitiba", periodo: "2019 – 2020", areas: "Comunicação visual · Gráfica · Audiovisual" },
-  { cargo: "Produtor de Conteúdo", empresa: "if – assessoria criativa",     periodo: "2016 – 2018",  areas: "Produção digital · Fotográfica · Motion design" }
+  { cargo: "Designer Gráfico Sr.", empresa: "LongVision",     periodo: "2025 - atual", areas: "experiências de aprendizagem · direção de arte · design editorial" },
+  { cargo: "Design Lead Sr.",      empresa: "Escola Conquer", periodo: "2021 - 2025",  areas: "gestão criativa de equipes · gestão de projetos B2B" },
+  { cargo: "Designer Editorial",   empresa: "Bienal Internacional de Arte Contemporânea de Curitiba", periodo: "2019 - 2021", areas: "projetos editoriais · publicações · direção de arte · projetos culturais" }
 ];
 const FORMACAO = [
-  { cargo: "Design Gráfico", empresa: "Universidade Positivo", periodo: "2026 – 2027", areas: "" },
-  { cargo: "Comunicação Organizacional", empresa: "Universidade Tecnológica Federal do Paraná", periodo: "2014 – 2018", areas: "Comunicação institucional · Mercadológica · Administrativa" }
+  { cargo: "Design Gráfico",             empresa: "Universidade Positivo", periodo: "2026 - 2027" },
+  { cargo: "Comunicação Organizacional", empresa: "Universidade Tecnológica Federal do Paraná", periodo: "2014 - 2018" }
 ];
 /* CLIENTES — faixa animada da home. Em "icone", coloque o caminho
    da imagem (ex.: "img/clientes/ifood.png"); vazio mostra a inicial. */
@@ -492,6 +629,8 @@ const CLIENTES = [
 
 /* Tags abaixo do título das duas páginas */
 const TAGS = ["Design Gráfico", "Direção de Arte", "Design de Aprendizagem", "Design Editorial", "Gestão de Projetos"];
+/* Tags da página sobre mim */
+const TAGS_SOBRE = ["Design Editorial", "Direção de Arte", "Design de Aprendizagem", "Gestão de Projetos", "Design Gráfico", "Gestão de Equipes"];
 
 
 /* ================================================================ */
@@ -528,7 +667,7 @@ function ativarVideos(){
   const parado = matchMedia("(prefers-reduced-motion: reduce)").matches;
   observador = new IntersectionObserver(es => es.forEach(e => {
     const v = e.target; v.muted = true;
-    if (e.isIntersecting && !parado) v.play().catch(() => {}); else v.pause();
+    if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
   }), { rootMargin: "200px" });
   app.querySelectorAll("video").forEach(v => {
     /* vídeo que ainda não está na pasta vira um bloco cinza 16:9 */
@@ -551,6 +690,7 @@ function faixaClientes(){
   </div>`;
 }
 
+/* HOME — PILHA DE CARTAS: cada projeto é uma carta que sobe e se empilha sobre a anterior */
 function portfolio(){
   app.innerHTML = intro("<span>Matheus Pronunciato,</span> <span class='linha l2'><i><span class='verde'>direção de arte</span> <b>&amp;</b> <span class='laranja'>design editorial</span></i>,</span> <span class='linha l3'>ou <small class='menor'><u><i>criações em geral</i></u></small></span>") + faixaClientes() + `
   <section class="works">
@@ -572,27 +712,148 @@ function portfolio(){
   </section>`;
 }
 
-function carrossel(p){
+/* fundo: cinza no topo, clareia até o bege quando as cartas chegam e escurece de novo antes do rodapé */
+const ESCURO = [18, 18, 17], CLARO = [236, 226, 198];
+let fundoLigado = false;
+function fundo(){
+  const aplicar = () => {
+    const pilhaEl = document.querySelector(".pilha");
+    if (!pilhaEl) { document.body.style.backgroundColor = ""; return; }
+    const vh = innerHeight, b = pilhaEl.getBoundingClientRect();
+    const entra = (vh * .7 - b.top) / (vh * .45);     /* começa quando o topo das cartas aparece embaixo */
+    const rod = document.querySelector("footer"), fim = rod ? rod.getBoundingClientRect().top : b.bottom;
+       const sai = (fim - vh * .3) / (vh * .5);    /* volta ao escuro quando a última carta vai embora */
+    const t = Math.min(1, Math.max(0, Math.min(entra, sai)));
+    const e = t * t * (3 - 2 * t);                      /* suaviza o começo e o fim */
+    const c = ESCURO.map((v, i) => Math.round(v + (CLARO[i] - v) * e));
+    document.body.style.backgroundColor = `rgb(${c.join(",")})`;
+  };
+  if (!fundoLigado) {
+    fundoLigado = true;
+    let pedido = 0;
+    const pedir = () => { if (!pedido) pedido = requestAnimationFrame(() => { pedido = 0; aplicar(); }); };
+    addEventListener("scroll", pedir, { passive: true });
+    addEventListener("resize", pedir);
+  }
+  aplicar();
+}
+
+function carrossel(p, i = 0){
   const itens = (p.carrossel || p.imagens).flat();
   const slide = r => ehMidia(r) ? midia(r, "slide") : `<div class="slide" style="aspect-ratio:${esc(r)}"></div>`;
   const k = Math.max(1, Math.ceil(8 / itens.length));
   const grupo = Array(k).fill(itens.map(slide).join("")).join("");
-  return `<a class="carousel" href="#${p.slug}" style="--dur:${itens.length * k * 7}s" aria-label="Ver projeto ${esc(p.titulo)}">
+  return `<a class="carousel${i % 2 ? " reverso" : ""}" href="#${p.slug}" style="--dur:${itens.length * k * 7}s" aria-label="Ver projeto ${esc(p.titulo)}">
     <div class="carousel-track"><div class="carousel-group">${grupo}</div><div class="carousel-group" aria-hidden="true">${grupo}</div></div>
     <span class="pill">Ver projeto ↗</span>
   </a>`;
 }
 
+/* a carta de baixo encolhe e escurece conforme a próxima a cobre */
+let pilhaLigada = false;
+function pilha(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const tick = () => {
+    raf = 0;
+    const cartas = [...document.querySelectorAll(".carta")];
+    cartas.forEach((c, i) => {
+      const prox = cartas[i + 1];
+      if (!prox) { c.style.transform = ""; c.firstElementChild.style.filter = ""; return; }
+      const a = c.getBoundingClientRect(), b = prox.getBoundingClientRect();
+      const cobre = Math.min(1, Math.max(0, (a.bottom - b.top) / a.height));
+      c.style.transform = `scale(${1 - cobre * .07})`;
+      c.firstElementChild.style.filter = `brightness(${1 - cobre * .5})`;
+    });
+  };
+  let raf = 0;
+  if (!pilhaLigada) {
+    pilhaLigada = true;
+    const pedir = () => { if (!raf) raf = requestAnimationFrame(tick); };
+    addEventListener("scroll", pedir, { passive: true });
+    addEventListener("resize", pedir);
+  }
+  tick();
+}
+
 function sobre(){
-  app.innerHTML = intro("sobre mim", true) + `
-  <section class="cv wrap">
-    <div class="cv-sec"><span class="label">Experiência</span>${lista(EXPERIENCIA)}</div>
-    <div class="cv-sec"><span class="label">Formação</span>${lista(FORMACAO)}</div>
+  const cargo = x => `<div class="sb-cargo"><b>${esc(x.cargo)}</b><span>${esc(x.empresa)}</span><span>${esc(x.periodo)}</span></div>`;
+  const areas = s => s ? `<p class="sb-areas">${s.split("·").map(a => `<span>${esc(a.trim())}</span>`).join(" · ")}</p>` : "";
+  const contato = (rot, href, txt) => `<a href="${href}"${href.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}><span class="rot">${rot}</span><strong>${txt}</strong></a>`;
+  app.innerHTML = `
+  <section class="sb wrap">
+    <h1 class="sb-titulo">sobre mim</h1>
+    <div class="sb-grid">
+      <div class="sb-esq">
+        <p class="sb-bio">${destaque(BIO)}</p>
+        <p class="sb-nome"><b>${esc(NOME)}</b><span>${esc(CARGO_ATUAL)}</span></p>
+        <ul class="tags sb-tags">${TAGS_SOBRE.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+      </div>
+      <div class="sb-dir">
+        <div class="sb-bloco">
+          <h2 class="sb-rot">Experiências</h2>
+          <ul class="sb-lista">${EXPERIENCIA.map(x => `<li class="sb-item">${cargo(x)}${areas(x.areas)}</li>`).join("")}</ul>
+        </div>
+        <div class="sb-bloco sb-form">
+          <h2 class="sb-rot">Formação</h2>
+          <ul class="sb-lista">${FORMACAO.map(x => `<li>${cargo(x)}</li>`).join("")}</ul>
+        </div>
+      </div>
+    </div>
+    <p class="sb-cta">Vamos criar juntos?</p>
+    <div class="sb-contatos">
+      <div>
+        ${contato("whatsapp", "https://wa.me/554191545658", "+55 41 9154-5658")}
+        ${contato("linkedin", "https://www.linkedin.com/in/matheus-pronunciato-416ba4142/", "matheus-pronunciato")}
+      </div>
+      <div>${contato("e-mail", "mailto:mpronunciato@gmail.com", "mpronunciato@gmail.com")}</div>
+    </div>
   </section>`;
 }
 
+/* botão fixo de contato */
+(() => {
+  const fab = document.getElementById("fab");
+  const fabBtn = fab.querySelector(".fab-btn");
+  const painel = fab.querySelector(".fab-painel");
+  const abrir = sim => { painel.hidden = !sim; fabBtn.setAttribute("aria-expanded", sim); };
+  fabBtn.addEventListener("click", () => abrir(painel.hidden));
+  document.addEventListener("click", e => { if (!fab.contains(e.target)) abrir(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !painel.hidden) { abrir(false); fabBtn.focus({ preventScroll: true }); } });
+  new IntersectionObserver(es => es.forEach(en => {
+    fab.classList.toggle("escondido", en.isIntersecting);
+    if (en.isIntersecting) abrir(false);
+  }), { threshold: .15 }).observe(document.getElementById("contato"));
+})();
+
+function chuvaDeDoces(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const a = document.createElement("div"); a.className = "aviso"; a.textContent = "🍰 servido!";
+    document.body.appendChild(a); setTimeout(() => a.remove(), 1800); return;
+  }
+  const doces = ["🍰", "🧁", "🍮", "🍩", "🍪", "🍫", "🍓", "🥧"];
+  for (let i = 0; i < 28; i++) {
+    const d = document.createElement("span");
+    d.className = "doce";
+    d.textContent = doces[i % doces.length];
+    d.style.left = Math.random() * 96 + "vw";
+    d.style.fontSize = 22 + Math.random() * 22 + "px";
+    d.style.setProperty("--d", 1.8 + Math.random() * 1.6 + "s");
+    d.style.setProperty("--atraso", Math.random() * .7 + "s");
+    d.style.setProperty("--giro", (Math.random() * 720 - 360) + "deg");
+    document.body.appendChild(d);
+    setTimeout(() => d.remove(), 4000);
+  }
+}
+
+/* ---------- página de projeto ---------- */
 function projeto(p){
-  const prox = PROJETOS[(PROJETOS.indexOf(p) + 1) % PROJETOS.length];
+  const idx = PROJETOS.indexOf(p);
+  const prox = PROJETOS[(idx + 1) % PROJETOS.length];
+  const todos = p.imagens.flat().filter(ehMidia);
+  const mini = (src, i) => `<button type="button" class="miniatura" data-i="${i}" data-cursor="ver" aria-label="Ver imagem ${i + 1}">${
+    ehVideo(src) || src.startsWith("data:video")
+      ? `<video src="${esc(src)}#t=0.5" muted playsinline preload="metadata"></video>`
+      : `<img src="${esc(src)}" alt="" loading="lazy">`}<span>${String(i + 1).padStart(2, "0")}</span></button>`;
   app.innerHTML = `
   <article>
     <div class="p-top wrap">
@@ -610,6 +871,14 @@ function projeto(p){
         <div class="p-text">${p.texto.map(t => `<p>${esc(t)}</p>`).join("")}</div>
       </div>
     </div>
+    <div class="p-modos wrap">
+      <div class="modos" role="tablist" aria-label="Modo de visualização">
+        <button type="button" role="tab" aria-selected="true" data-modo="leitura">leitura</button>
+        <button type="button" role="tab" aria-selected="false" data-modo="folha">folha de contato</button>
+      </div>
+      <span class="label dica"><kbd>←</kbd><kbd>→</kbd> outros projetos</span>
+    </div>
+    <div class="folha wrap" hidden>${todos.map(mini).join("")}</div>
     <div class="gallery wrap${p.semEspaco ? " colado" : ""}">
       ${p.imagens.map((r, k) => {
         const foto = src => midia(src, "shot", p.titulo);
@@ -620,21 +889,52 @@ function projeto(p){
       }).join("")}
     </div>
     <div class="wrap">
-      <a class="next" href="#${prox.slug}">
+      <a class="next" href="#${prox.slug}" data-cursor="próximo">
         <span><span class="label">Próximo projeto</span><strong>${esc(prox.titulo)}</strong></span>
         <span class="arrow">→</span>
       </a>
     </div>
   </article>`;
+
+  const folha = app.querySelector(".folha");
+  const galeria = app.querySelector(".gallery");
+  const abas = [...app.querySelectorAll(".modos button")];
+  const modo = m => {
+    abas.forEach(b => b.setAttribute("aria-selected", b.dataset.modo === m));
+    folha.hidden = m !== "folha";
+    galeria.hidden = m === "folha";
+  };
+  abas.forEach(b => b.addEventListener("click", () => modo(b.dataset.modo)));
+  folha.addEventListener("click", e => {
+    const b = e.target.closest(".miniatura"); if (!b) return;
+    modo("leitura");
+    const alvo = galeria.querySelectorAll(".shot")[+b.dataset.i];
+    if (alvo) {
+      alvo.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      alvo.classList.add("marcado"); setTimeout(() => alvo.classList.remove("marcado"), 1600);
+    }
+  });
 }
 
+/* setas do teclado passam de um projeto para outro */
+document.addEventListener("keydown", e => {
+  if (e.altKey || e.ctrlKey || e.metaKey || !/Arrow(Left|Right)/.test(e.key)) return;
+  if (e.target.closest && e.target.closest(".modos, .regua")) return;
+  const i = PROJETOS.findIndex(x => x.slug === location.hash.slice(1));
+  if (i < 0) return;
+  const n = PROJETOS.length;
+  location.hash = PROJETOS[(i + (e.key === "ArrowRight" ? 1 : n - 1)) % n].slug;
+});
+
 function route(){
+  document.body.style.backgroundColor = "";
   const slug = location.hash.slice(1);
   const p = PROJETOS.find(x => x.slug === slug);
   let atual = "portfolio";
-  if (p) projeto(p);
+  if (p) { projeto(p); atual = "projeto"; }
   else if (slug === "sobre") { sobre(); atual = "sobre"; }
   else portfolio();
+  document.documentElement.dataset.pagina = atual === "portfolio" ? "home" : atual;
   ativarVideos();
   document.querySelectorAll("[data-nav]").forEach(a =>
     a.dataset.nav === atual ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"));
